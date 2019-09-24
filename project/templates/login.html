@@ -1,0 +1,60 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container bg">
+    <header class="row-container">
+        <div class="col-10"></div>
+        <div class="col-20 logo">
+            <a href="{{url_for('login')}}" class="logo-link">
+                <img src="{{url_for('static', filename='logo.png')}}" class="responsive-img" alt="">
+            </a>
+        </div>
+        <nav class="col-70 navbar collapsable">
+            <ul class="nav-item-container">
+                <li class="nav-item"><a href="#" class="nav-link">Free sms</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Business</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Promote</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Voice sms</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                <li class="nav-item contact-us">
+                    <div><a href="" class="nav-link">xyz@162by2.com</a></div>
+                    <div> <a href="" class="nav-link">123456789</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="row-container">
+        <div class="col-10"></div>
+        <section class="col-50 intro">
+                <div>
+                    <p>The all new texting Now use</p>
+                        
+                    </p>160by2 for business needs</p>
+                </div>
+                <form action="{{url_for('signup')}}" method="GET">
+                    <button type="submit" class="styled-button site-theme-color">Sign Up</button>
+                </form>
+        </section>
+        <section class="col-50">
+            <div class="bg-white col-container login-form col-container-spacearound">
+                <div class="padding-2">
+                     <p class="site-theme-color">Log In</p>
+                     <p>Problems while logging? <a class="site-theme-color" href="">click here</a></p>
+                </div>
+                <form action="" method="POST" class="col-container" novalidate>
+                    {{ form.hidden_tag() }} 
+                    <div class="padding-2">
+                        {{form.mobile_no(placeholder="Mobile No", class="form-field")}}
+                    
+                        {{form.password(placeholder="Password", class="form-field")}}
+                    </div>
+                    <div class="padding-2">
+                        <a href="" class="site-theme-color padding-1">Forgot password? </a>
+                        {{form.login(class_="styled-button site-theme-color")}}
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+{%endblock content%}

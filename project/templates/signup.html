@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%block content%}
+<form action="" method="POST" novalidate>
+                {{ form.hidden_tag() }} 
+        <div>
+                {{form.username.label}}
+                {{form.username}}
+                {%for error in form.username.errors%}
+                    <span style="color:red;">[{{error}}]</span>
+                {%endfor%}
+        </div>
+        <div>
+                {{form.mobile_no.label}}
+                {{form.mobile_no}}
+                {%for error in form.mobile_no.errors%}
+                    <span style="color:red;">[{{error}}]</span>
+                {%endfor%}
+        </div>
+        <div>
+                {{form.email_id.label}}
+                {{form.email_id}}
+                {%for error in form.email_id.errors%}
+                    <span style="color:red;">[{{error}}]</span>
+                {%endfor%}
+        </div>
+        <div>
+                {{form.password.label}}
+                {{form.password}}
+                {%for error in form.password.errors%}
+                    <span style="color:red;">[{{error}}]</span>
+                {%endfor%}
+        </div>
+        <div>
+                {{form.confirm_password.label}}
+                {{form.confirm_password}}
+                {%for error in form.confirm_password.errors%}
+                    <span style="color:red;">[{{error}}]</span>
+                {%endfor%}    
+        </div>
+            {{form.sign_up(class="styled-button site-theme-color")}}
+        
+</form>
+{%endblock%}
