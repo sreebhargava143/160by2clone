@@ -1,0 +1,22 @@
+{%extends "account.html"%}
+{%block main%}
+<form action="{{url_for('message')}}" method="POST">
+    {{form.hidden_tag()}}
+        <div>
+            {{form.recipient_no.label}}
+            {{form.recipient_no}}
+        </div>
+        <div>
+            {{form.message}}
+        </div>
+        {{form.send}}
+</form>              
+<aside class="account-aside">
+    <h2>Contacts</h2>
+    {%for contact in contacts%}
+    <ul>
+        <li><a href="{{url_for('message_to', contact_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
+    </ul>
+    {%endfor%}
+</aside>
+{%endblock main%}

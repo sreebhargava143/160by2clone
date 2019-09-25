@@ -1,0 +1,28 @@
+{%extends "account.html"%}
+{%block main%}
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+        <div>
+            {{form.contact_name.label}}
+            {{form.contact_name}}
+            <br>
+            {%for error in form.contact_name.errors%}
+                <span style="color:red;">[{{error}}]</span>
+            {%endfor%}
+        </div>
+        <div>
+            {{form.contact_no.label}}
+            {{form.contact_no}}
+            <br>
+            {%for error in form.contact_no.errors%}
+                <span style="color:red;">[{{error}}]</span>
+            {%endfor%}
+        </div>
+        <div>
+            {{form.gender.label}}
+            {{form.gender}}
+        </div>
+        {{form.add_contact}}
+</form>              
+ 
+{%endblock main%}

@@ -1,0 +1,20 @@
+{%extends "account.html"%}
+{%block main%}
+<section>
+    <ul>
+        {%for sent_message in sent_messages%}
+        <li>
+            <span>
+                <b>{{sent_message.recipient.contact_name}}:</b>
+            </span>
+            <span>
+                {{sent_message.message_body}}
+            </span>
+            <div>
+                {{sent_message.timestamp}}
+            </div>
+        </li>
+        {%endfor%}
+    </ul>
+</section>              
+{%endblock main%}

@@ -34,10 +34,12 @@ p{
 .col-70{
     width: 70%;
 }
+.width-100{
+    width: 100%
+}
 .row-container {
     display: flex;
     flex-direction: row;
-    /* width:100%; */
 }
 .col-container{
     display: flex;
@@ -52,7 +54,7 @@ p{
     align-self: center;
 }
 
-.navbar {
+.navbar-login {
     /* background-color: rebeccapurple; */
     display: inline-block;
     align-self: center;
@@ -112,6 +114,7 @@ font-weight: 600;
 .bg-white{
     background-color: white;
 }
+
 .form-field{
     border: none;
     border-bottom: 0.5px solid grey;
@@ -130,4 +133,25 @@ font-weight: 600;
 .done {
     display: inline-block;
     background-color: lightgreen;
+}
+.fail{
+    display: inline-block;
+    background-color: lightcoral;
+}
+.account-aside {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    color: white;
+    background-color: #ec5452;
+}
+.navbar-account{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.logo-account{
+    width: 15%;
+    background-color: #ec5452;
+    display: flex;
 }
