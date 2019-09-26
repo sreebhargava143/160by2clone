@@ -11,7 +11,7 @@
                 {{sent_message.message_body}}
             </span>
             <div>
-                {{sent_message.timestamp}}
+                {{moment(sent_message.timestamp).fromNow()}}
             </div>
         </li>
         {%endfor%}

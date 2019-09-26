@@ -42,3 +42,19 @@ class ContactForm(FlaskForm):
         number = Contact.query.filter_by(contact_no=contact_no.data, owner_id=current_user.user_id).first()
         if number:
             raise ValidationError("Mobile number already added to contacts list")
+
+class RequestResetForm(FlaskForm):
+    mobile_no = StringField('Mobile No',
+                        validators=[DataRequired(), Length(min=10, max=10)])
+    submit = SubmitField('Request Password Reset')
+
+    def validate_mobile_no(self, mobile_no):
+        user = User.query.filter_by(mobile_no=mobile_no.data).first()
+        if user is None:
+            raise ValidationError('There is no account with that email. You must SIGN-UP first.')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField("Password", validators=[DataRequired()])
+    confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
+    sign_up = SubmitField("Reset Password")

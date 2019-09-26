@@ -2,6 +2,7 @@
 config.py
 .env
 .flaskenv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
