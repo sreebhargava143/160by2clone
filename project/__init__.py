@@ -18,8 +18,14 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 encrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+login_manager.login_view = 'users.login'
 moment = Moment(app)
 # babel = Babel(app)
 
-from project import routes, models
+from project.users.routes import users
+from project.messages.routes import messages
+from project.contacts.routes import contacts
+
+app.register_blueprint(users)
+app.register_blueprint(messages)
+app.register_blueprint(contacts)

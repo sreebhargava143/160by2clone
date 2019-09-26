@@ -4,7 +4,7 @@
     <header class="row-container">
         <div class="col-10"></div>
         <div class="col-20 logo">
-            <a href="{{url_for('login')}}" class="logo-link">
+            <a href="{{url_for('users.login')}}" class="logo-link">
                 <img src="{{url_for('static', filename='logo.png')}}" class="responsive-img" alt="">
             </a>
         </div>
@@ -31,7 +31,7 @@
                         
                     </p>160by2 for business needs</p>
                 </div>
-                <form action="{{url_for('signup')}}" method="GET">
+                <form action="{{url_for('users.signup')}}" method="GET">
                     <button type="submit" class="styled-button site-theme-color">Sign Up</button>
                 </form>
         </section>
@@ -54,7 +54,7 @@
                         {%endfor%}
                     </div>
                     <div class="padding-2">
-                        <a href="{{url_for('forgot_password')}}" class="site-theme-color padding-1">Forgot password? </a>
+                        <a href="{{url_for('users.forgot_password')}}" class="site-theme-color padding-1">Forgot password? </a>
                         {{form.login(class_="styled-button site-theme-color")}}
                     </div>
                 </form>
