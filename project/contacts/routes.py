@@ -17,7 +17,7 @@ def contact():
         contact = Contact(contact_name=form.contact_name.data, contact_no=form.contact_no.data, owner=current_user)
         db.session.add(contact)
         db.session.commit()
-        flash("contact added", "done")
+        flash("contact added", "success")
         return redirect(url_for('contacts.contact'))
     return render_template("contact.html", form=form)
 

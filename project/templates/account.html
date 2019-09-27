@@ -1,59 +1,21 @@
 {%extends "base.html"%}
 {%block content%}
     <div class="col-container width-100">
-        <nav class=".navbar-account">
-                <div class="col-10 logo-account">
-                    <a href="{{url_for('users.login')}}" class="logo-link">
-                        <img src="{{url_for('static', filename='logo.png')}}" class="responsive-img" alt="">
-                    </a>
-                </div>
-                <ul class="col-80 nav-item-container">
-                    <li class="nav-item"><a href="#" class="">Free sms</a></li>
-                    <li class="nav-item"><a href="#" class="">Business</a></li>
-                    <li class="nav-item"><a href="#" class="">Promote</a></li>
-                    <li class="nav-item"><a href="#" class="">Voice sms</a></li>
-                    <li class="nav-item"><a href="#" class="">Pricing</a></li>
-                    <li class="nav-item contact-us">
-                        <div><a href="" class="">xyz@162by2.com</a></div>
-                        <div> <a href="" class="">123456789</a>
-                        </div>
-                    </li>
-                    <li class="nav-item contact-us">
-                        <div><a href="" class=""></a></div>
-                        <div> <a href="{{url_for('users.logout')}}" class="">Logout</a>
-                        </div>
-                    </li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                </ul>
-        </nav>
-        <section class="row-container">
+        <section class="row-container-160by2 account-body">
             <aside class="account-aside">
-                    <div>
-                        <h1>160by2</h1>
-                    </div>
-                    <div>
-                        <p>
-                            welcome!
-                        </p>
-                        <p>
-                            {{current_user.username}}
-                        </p>
-                    </div>
-                    <div>
-                        <a href="{{url_for('messages.message')}}">
+                    <div class="aside-item">
+                        <a class="styled-button" href="{{url_for('messages.message')}}">
                             Message
                         </a>
                     </div>
                     
-                    <div>
-                        <a href="{{url_for('contacts.contact')}}">
+                    <div class="aside-item">
+                        <a class="styled-button" href="{{url_for('contacts.contact')}}">
                             Contact
                         </a>
                     </div>
-                    <div>
-                        <a href="{{url_for('messages.sent_messages')}}">
+                    <div class="aside-item">
+                        <a class="styled-button" href="{{url_for('messages.sent_messages')}}">
                             Sent
                         </a>
                     </div>

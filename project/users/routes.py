@@ -17,7 +17,7 @@ def signup():
         user = User(username=form.username.data, email_id=form.email_id.data, mobile_no=form.mobile_no.data, password=password_hash)
         db.session.add(user)
         db.session.commit()
-        flash("Registration Successfull", "done")
+        flash("Registration Successfull", "success")
         return redirect(url_for('users.login', title="Login"))
     return render_template("signup.html", title="Sign Up", form=form)
 
@@ -35,9 +35,9 @@ def login():
                 login_user(user)
                 return redirect(url_for('messages.message'))
             else:
-                flash("invalid password or username", "fail")
+                flash("invalid password or username", "danger")
         else:
-            flash("You are not a registered user! Register to login", "fail")
+            flash("You are not a registered user! Register to login", "danger")
             return redirect(url_for('users.signup'))
     return render_template("login.html", form=form)
 
@@ -49,7 +49,7 @@ def forgot_password():
     if form.validate_on_submit():
         user = User.query.filter_by(mobile_no=form.mobile_no.data).first()
         send_reset_link(user)
-        flash('A reset link has been sent with instructions to reset your registered mobile number.', 'done')
+        flash('A reset link has been sent with instructions to reset your registered mobile number.', 'success')
         return redirect(url_for('users.login'))
     return render_template('forgot_password.html', title='Reset Password', form=form)
 

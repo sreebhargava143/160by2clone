@@ -1,17 +1,27 @@
 {%extends "account.html"%}
 {%block main%}
-<form action="{{url_for('messages.message')}}" method="POST">
-    {{form.hidden_tag()}}
-        <div>
-            {{form.recipient_no.label}}
-            {{form.recipient_no}}
+
+<div class="registration-form message-form">
+    <form action="{{url_for('messages.message')}}" class='form-group' method="POST" novalidate>
+        {{ form.hidden_tag() }} 
+        <div class="form-field">
+            {{form.recipient_no(class="form-field form-control form-control-lg", placeholder="Recipient Number")}}
+            {%for error in form.recipient_no.errors%}
+                <div class="error-feedback"><span>{{error}}</span></div>
+            {%endfor%}
         </div>
-        <div>
-            {{form.message}}
+        <div class="form-field">
+            {{form.message(class="form-field form-control form-control-lg", placeholder="")}}
+            {%for error in form.message.errors%}
+                <div class="error-feedback"><span>{{error}}</span></div>
+            {%endfor%}
         </div>
-        {{form.send}}
-</form>              
-<aside class="account-aside">
+
+        {{form.send(class="styled-button site-theme-color")}}
+        
+    </form>
+</div>
+<aside class="contacts-aside">
     <h2>Contacts</h2>
     {%for contact in contacts%}
     <ul>

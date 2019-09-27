@@ -1,29 +1,72 @@
 {%extends "base.html"%}
 {%block content%}
-<div class="container bg">
-    <header class="row-container">
-        <div class="col-10"></div>
-        <div class="col-20 logo">
-            <a href="{{url_for('users.login')}}" class="logo-link">
-                <img src="{{url_for('static', filename='logo.png')}}" class="responsive-img" alt="">
-            </a>
-        </div>
-        <nav class="col-70 navbar-login collapsable">
-            <ul class="nav-item-container">
-                <li class="nav-item"><a href="#" class="nav-link">Free sms</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Business</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Promote</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Voice sms</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                <li class="nav-item contact-us">
-                    <div><a href="" class="nav-link">xyz@162by2.com</a></div>
-                    <div> <a href="" class="nav-link">123456789</a>
+    
+        <main class="row-container-160by2 main-container">
+            <section class="intro">
+                    <div>
+                        <p>The all new texting Now use</p>
+                            
+                        </p>160by2 for business needs</p>
                     </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main class="row-container">
+                    <form action="{{url_for('users.signup')}}" method="GET">
+                        <button type="submit" class="styled-button site-theme-color">Sign Up</button>
+                    </form>
+            </section>
+            <section class="login-container">
+                <div class="login-form">
+                    <div class="padding-2">
+                            <h1 class="login-text"><b>Log In</b></h1>
+                            <p class="login-text">Problems while logging? <a class="site-theme-color" href="{{url_for('users.forgot_password')}}">click here</a></p>
+                    </div>
+                    <div>
+                        <form action="" class='form-group' method="POST" class="col-container" novalidate>
+                            {{ form.hidden_tag() }} 
+                            <div class="padding-2">
+                                <div class="form-field">
+                                    {{form.mobile_no(placeholder="Mobile No", class="form-field form-control form-control-lg")}}
+                                        {%for error in form.mobile_no.errors%}
+                                            <div class="error-feedback"><span>{{error}}</span></div>
+                                        {%endfor%}
+                                </div>
+                                <div class="form-field">
+                                    {{form.password(placeholder="Password", class="form-field form-control form-control-lg")}}
+                                        {%for error in form.password.errors%}
+                                            <div class="error-feedback"><span>{{error}}</span></div>
+                                        {%endfor%}
+                                </div>
+                            </div>
+                            <div class="padding-2">
+                                {{form.login(class_="styled-button site-theme-color")}}
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!-- <div class="header-div nav-div">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    
+                    <li class="nav-item active"><a href="#" class="nav-link">Business</a></li>
+                    <li class="nav-item active"><a href="#" class="nav-link">Promote</a></li>
+                    <li class="nav-item active"><a href="#" class="nav-link">Voice sms</a></li>
+                    <li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li>
+                    <li class="nav-item active contact-us">
+                        <div><a href="" class="nav-link">xyz@162by2.com</a></div>
+                        <div> <a href="" class="nav-link">123456789</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </nav>
+        </div> -->
+    
+    <!-- <main class="row-container-160by2">
         <div class="col-10"></div>
         <section class="col-50 intro">
                 <div>
@@ -54,12 +97,11 @@
                         {%endfor%}
                     </div>
                     <div class="padding-2">
-                        <a href="{{url_for('users.forgot_password')}}" class="site-theme-color padding-1">Forgot password? </a>
+                        <a  class="site-theme-color padding-1">Forgot password? </a>
                         {{form.login(class_="styled-button site-theme-color")}}
                     </div>
                 </form>
             </div>
         </section>
-    </main>
-</div>
+    </main> -->
 {%endblock content%}

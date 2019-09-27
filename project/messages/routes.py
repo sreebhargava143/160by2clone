@@ -1,5 +1,5 @@
 from project import db
-from flask import render_template,url_for, redirect, flash, get_flashed_messages
+from flask import render_template,url_for, redirect, flash, get_flashed_messages, request
 from flask_login import current_user, login_required
 from project.messages.forms import MessageForm
 from project.models import Contact, Message
@@ -27,7 +27,7 @@ def message():
             message = Message(message_body=form.message.data, sender=current_user, recipient=recipient)
             db.session.add(message)
             db.session.commit()
-            flash("message sent", "done")
+            flash("message sent", "success")
         return redirect(url_for("messages.message", form=form, contacts=contacts))
     return render_template("message.html", form=form, contacts=contacts)
 
@@ -42,5 +42,15 @@ def message_to(contact_no):
 @messages.route('/sent_messages', methods=["GET", "POST"])
 @login_required
 def sent_messages():
-    sent_messages = Message.query.filter_by(sender=current_user).order_by(Message.timestamp.desc())
-    return render_template("sent.html", sent_messages=sent_messages)
+    contacts = Contact.query.filter_by(owner_id=current_user.user_id).all()
+
+    page = request.args.get('page', 1, type=int)
+
+    sent_messages_list = Message.query.filter_by(sender=current_user).order_by(Message.timestamp.desc()).paginate(page=page, per_page=5)
+    
+    next_url = url_for("messages.sent_messages", page=sent_messages_list.next_num) if sent_messages_list.has_next else None
+    
+    prev_url = url_for("messages.sent_messages", page=sent_messages_list.prev_num) if sent_messages_list.has_prev else None
+    
+    return render_template("sent.html", sent_messages=sent_messages_list.items, contacts=contacts, next_url=next_url, prev_url=prev_url)
+

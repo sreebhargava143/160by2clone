@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-
     <link rel="stylesheet" href='{{url_for("static", filename="styles.css")}}'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {%if title%}
     <title>{{title}}</title>
     {%else%}
@@ -14,20 +13,71 @@
     {%endif%}
 </head>
 <body>
-  {{moment.include_jquery()}}
-  {{moment.include_moment()}}
+  <div class="col-container-160by2 bg">
+      <div class="alert alert-{{category}}">
+        <p>{{ message }}</p>
+      </div>
+    {{moment.include_jquery()}}
+    {{moment.include_moment()}}
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
           {% for category, message in messages %}
-            <div class="{{category}}">
-              {{ message }}
+            <div class="alert alert-{{category}}">
+              <p>{{ message }}</p>
             </div>
           {% endfor %}
         {% endif %}
       {% endwith %}
+      <header class="header-container">
+        <div class="logo-div">
+            <a href="{{url_for('users.login')}}" class="logo-link">
+                <img src="{{url_for('static', filename='logo.png')}}" alt="" class="responsive-img">
+            </a>
+        </div>
+
+          <nav class="navbar navbar-expand-lg navbar-light transparent-nav" id="navbarNavDropdown">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                    {%if not current_user.is_authenticated %}
+                      <li class="nav-item active"><a href="{{url_for('users.login')}}" class="nav-link" style="color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw">Free sms<span class="sr-only">(current)</span></a></li>
+                      
+                      <li class="nav-item">
+                          <a class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.signup')}}">Sign Up</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.forgot_password')}}">Forgot password?</a>
+                      </li>
+                    {%else%}
+                    <li class="nav-item">
+                        <p class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw'>
+                            Logged in as: {{current_user.username}}
+                        </p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.logout')}}">Logout</a>
+                    </li>
+                    {%endif%}
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw'>
+                              Contact Us
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="mailto:support@way2sms.com">support@way2sms.com</a>
+                          <a class="dropdown-item" href="#">+91 8978 055 155</a>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+        </header>
     {%block content%}{%endblock%}
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </div>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

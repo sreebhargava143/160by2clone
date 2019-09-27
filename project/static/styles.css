@@ -5,12 +5,57 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-p{
-    margin:0;
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
-.container{
+.logo-div {
+    width: 30%;
+    display: inline-block;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo-link{
+    display: inline-block;
+    width: fit-content;
+}
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.nav-container{
+    width: 50%;
+    height: 20%;
+    background-color: transparent;
+}
+.login-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 3%;
+    background-color: whitesmoke;
+    opacity: 0.8;
+    border-radius: 5px;
+    box-shadow: grey -5px 7px 10px;
+}
+.transparent-nav{
+    background-color: transparent;
+}
+.main-container{
+    justify-content: space-around;
+}
+.col-container-160by2{
     display: flex;
     flex-direction: column;
+    
+}
+.row-container-160by2{
+    display: flex;
+    flex-direction: row;
+    width: 100%
 }
 .bg {
     background-image: url('160by2-bg.png');
@@ -18,6 +63,135 @@ p{
     background-size: 100%;
     height:1000px;
     width:100%;
+}
+.login-text {
+    font-size: 1vw;
+    font-weight: 400;
+    color: #ec5452;
+}
+.login-form {
+    padding: 2%;
+}
+
+.form-field{
+        margin-bottom: 2vw;
+    
+}
+input[type=text], input[type=password] {
+    border: none;
+    border-bottom: 0.5px solid grey;
+    padding-bottom: 2%;
+    padding-top:5%;
+}
+.white-text{
+    color: white;
+    /* font-size: 2vmin; */
+}
+.styled-button {
+    padding: 5px 36px;
+    border: 2px solid #ec5452;
+    border-radius: 30px;
+    font-weight: 400;
+}
+.styled-button:hover {
+    color: white;
+    background-color: #ec5452;
+    cursor: pointer;
+}
+.intro {
+    font-size: 1.5vw
+}
+.error-feedback {
+    color: red;
+}
+.registration-form-container {
+    display: flex;
+    justify-content: center;
+}
+.registration-form{
+    background-color: #eee3e3;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+.clear-default-styles {
+    list-style-type: none;
+}
+.gender {
+    color:grey;
+    list-style-type: none;
+}
+.form-field{
+    background-color: inherit;
+}
+.nav.text {
+    color: white;
+    font-size: 1.4vw;
+    padding-left: 1vw;
+    padding-right: 1vw
+}
+
+.account-aside,
+.contacts-aside {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    color: #ec5452;
+    background-color: #eee3e3;
+    height: 640px;
+    overflow: scroll;
+}
+.account-aside{
+    box-shadow: grey 5px 5px 10px;
+}
+
+.contacts-aside{
+    box-shadow: grey -5px 5px 10px;
+}
+.sent-message {
+    list-style-type: none;
+    margin: 40px 0;
+    padding: 5px;
+}
+.sent-message:nth-child( odd ){
+    background-color: gainsboro;
+}
+.sent-message:nth-child( even ){
+    background-color: white;
+}
+.account-body {
+    justify-content: space-around;
+}
+.aside-item{
+    padding: 1.5vmax;
+}
+.message-form {
+    width: 50%;
+    height: 80%;
+    padding: 5%;
+}
+.contact-form {
+    width: 70%;
+    padding: 5%
+}
+.sent-messages{
+    width: 70%;
+    padding: 0.5%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.scroll-button{
+    display: inline-block
+}
+/*
+
+p{
+    margin:0;
 }
 .col-10{
     width:10%;
@@ -37,10 +211,7 @@ p{
 .width-100{
     width: 100%
 }
-.row-container {
-    display: flex;
-    flex-direction: row;
-}
+
 .col-container{
     display: flex;
     flex-direction: column;
@@ -49,19 +220,16 @@ p{
     justify-content: space-around;
 }
 .logo {
-    /* background-color: aqua; */
     display: flex;
     align-self: center;
 }
 
 .navbar-login {
-    /* background-color: rebeccapurple; */
     display: inline-block;
     align-self: center;
     display: flex;
     justify-content: right;
     font-size: 1.3vw;
-    /* padding-right: 13vw; */
 }
 .nav-item{
     display: inline-block;
@@ -91,36 +259,17 @@ p{
     font-size: 1vw;
 }
 
-.responsive-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+
 .site-theme-color{
     color: #ec5452;
     font-size: 0.8vw;
 }
-.styled-button {
-padding: 5px 36px;
-border: 2px solid #ec5452;
-border-radius: 30px;
-font-weight: 600;
-}
-.styled-button:hover {
-    color: white;
-    background-color: #ec5452;
-    cursor: pointer;
-}
+
 .bg-white{
     background-color: white;
 }
 
-.form-field{
-    border: none;
-    border-bottom: 0.5px solid grey;
-    padding-bottom: 2%;
-    padding-top:5%;
-}
+
 .login-form {
     width: 335px;
     height: 353px;
@@ -138,20 +287,33 @@ font-weight: 600;
     display: inline-block;
     background-color: lightcoral;
 }
-.account-aside {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    color: white;
-    background-color: #ec5452;
-}
+
 .navbar-account{
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    flex-direction: row;
 }
+
 .logo-account{
     width: 15%;
-    background-color: #ec5452;
     display: flex;
 }
+/*
+
+
+.contacts-aside{
+    overflow: scroll;
+}
+.welcome{
+    font-size: 1.5vmax;
+}
+.styled-button a{
+    text-decoration: none;
+    color : inherit;
+    font-size: 1.3vmax;
+    padding: 30px 30px; 
+}
+/*  */
+/* .flashed-message {
+    
+} */ */ */

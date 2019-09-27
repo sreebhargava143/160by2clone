@@ -1,6 +1,31 @@
 {%extends "account.html"%}
 {%block main%}
-<form action="" method="POST" novalidate>
+
+<div class="registration-form contact-form">
+    <form action="" class="form-group" method="POST" novalidate>
+        {{ form.hidden_tag() }} 
+        <div class="form-field">
+            {{form.contact_name(class="form-field form-control form-control-lg", placeholder="Contact Name")}}
+            {%for error in form.contact_name.errors%}
+                <div class="error-feedback"><span>{{error}}</span></div>
+            {%endfor%}
+        </div>
+        <div class="form-field">
+            {{form.contact_no(class="form-field form-control form-control-lg", placeholder="Contact Number")}}
+            {%for error in form.contact_no.errors%}
+                <div class="error-feedback"><span>{{error}}</span></div>
+            {%endfor%}
+        </div class="form-field">
+        <div>
+            {{form.gender(class="gender")}}
+        </div>
+
+        {{form.add_contact(class="styled-button site-theme-color")}}
+ 
+    </form>
+</div>
+
+<!-- <form action="" method="POST" novalidate>
     {{form.hidden_tag()}}
         <div>
             {{form.contact_name.label}}
@@ -24,5 +49,5 @@
         </div>
         {{form.add_contact}}
 </form>              
- 
+  -->
 {%endblock main%}

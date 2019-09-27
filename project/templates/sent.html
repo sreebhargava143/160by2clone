@@ -1,9 +1,9 @@
 {%extends "account.html"%}
 {%block main%}
-<section>
+<section class="registration-form sent-messages">
     <ul>
         {%for sent_message in sent_messages%}
-        <li>
+        <li class="sent-message">
             <span>
                 <b>{{sent_message.recipient.contact_name}}:</b>
             </span>
@@ -16,5 +16,25 @@
         </li>
         {%endfor%}
     </ul>
-</section>              
+    <div class="pagination">
+        <div class="scroll-button">
+            {%if prev_url %}
+            <a class="styled-button" href="{{prev_url}}">Prev</a>
+            {%endif%}
+        </div>
+        <div class="scroll-button">
+            {% if next_url %}
+            <a class="styled-button" href="{{next_url}}">next</a>
+            {%endif%}
+        </div>
+    </div>
+</section>
+<aside class="contacts-aside">
+    <h2>Contacts</h2>
+    {%for contact in contacts%}
+    <ul>
+        <li><a href="{{url_for('messages.message_to', contact_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
+    </ul>
+    {%endfor%}
+</aside>              
 {%endblock main%}

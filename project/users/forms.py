@@ -41,4 +41,4 @@ class RequestResetForm(FlaskForm):
 class ResetPasswordForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
-    sign_up = SubmitField("Reset Password")
+    submit = SubmitField("Reset Password")
