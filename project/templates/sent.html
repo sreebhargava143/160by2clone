@@ -1,6 +1,15 @@
 {%extends "account.html"%}
 {%block main%}
 <section class="registration-form sent-messages">
+    {% if g.search_form %}
+    <form class="navbar-form navbar-left" method="get"
+            action="{{ url_for('messages.search') }}">
+        <div class="form-group">
+            {{ g.search_form.q(size=20, class='form-control',
+                placeholder=g.search_form.q.label.text) }}
+        </div>
+    </form>
+    {% endif %}
     <ul>
         {%for sent_message in sent_messages%}
         <li class="sent-message">
@@ -11,7 +20,7 @@
                 {{sent_message.message_body}}
             </span>
             <div>
-                {{moment(sent_message.timestamp).fromNow()}}
+                <span class="message-time">{{moment(sent_message.timestamp).fromNow()}}</span>
             </div>
         </li>
         {%endfor%}

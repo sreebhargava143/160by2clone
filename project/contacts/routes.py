@@ -14,7 +14,7 @@ contacts = Blueprint("contacts", __name__)
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
-        contact = Contact(contact_name=form.contact_name.data, contact_no=form.contact_no.data, owner=current_user)
+        contact = Contact(contact_name=form.contact_name.data, contact_no=form.contact_no.data, owner=current_user, gender=form.gender.data)
         db.session.add(contact)
         db.session.commit()
         flash("contact added", "success")

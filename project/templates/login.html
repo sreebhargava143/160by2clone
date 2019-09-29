@@ -21,7 +21,7 @@
                     <div>
                         <form action="" class='form-group' method="POST" class="col-container" novalidate>
                             {{ form.hidden_tag() }} 
-                            <div class="padding-2">
+                            <div>
                                 <div class="form-field">
                                     {{form.mobile_no(placeholder="Mobile No", class="form-field form-control form-control-lg")}}
                                         {%for error in form.mobile_no.errors%}
