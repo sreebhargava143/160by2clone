@@ -54,3 +54,19 @@ def sent_messages():
     
     return render_template("sent.html", sent_messages=sent_messages_list.items, contacts=contacts, next_url=next_url, prev_url=prev_url)
 
+@messages.route('/sent_messages_of/<string:recipient_no>', methods=["GET", "POST"])
+@login_required
+def sent_messages_of(recipient_no):
+    contacts = Contact.query.filter_by(owner_id=current_user.user_id).all()
+    page = request.args.get('page', 1, type=int)
+
+    
+    recipient = Contact.query.filter_by(contact_no=recipient_no).first()
+    print(recipient, "*#"*20, recipient_no)
+    sent_messages_list = Message.query.filter(and_(Message.sender==current_user, Message.recipient==recipient)).order_by(Message.timestamp.desc()).paginate(page=page, per_page=5)
+
+    next_url = url_for("messages.sent_messages", page=sent_messages_list.next_num) if sent_messages_list.has_next else None
+
+    prev_url = url_for("messages.sent_messages", page=sent_messages_list.prev_num) if sent_messages_list.has_prev else None
+
+    return render_template("sent.html", sent_messages=sent_messages_list.items, contacts=contacts, next_url=next_url, prev_url=prev_url)

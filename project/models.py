@@ -56,4 +56,4 @@ class Message(db.Model):
     recipient_id = db.Column(db.Integer, db.ForeignKey("contact.contact_id"))
 
     def __repr__(self):
-        return f"Message: {self.message_body} sender: {self.sender.username} recipient: {self.recipient_id}"
+        return f"Message: {self.message_body} sender: {self.sender.username} recipient: {self.recipient.contact_name}"
