@@ -1,8 +1,7 @@
 #FLASK ENVS AND CONFIG
-config.py
+# config.py
 .env
-.flaskenv
-
+# .flaskenv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
