@@ -7,6 +7,7 @@ from flask_login import LoginManager
 from flask_babel import Babel
 from flask import request
 from flask_moment import Moment
+from elasticsearch import Elasticsearch
 
 # @babel.localeselector
 # def get_locale():
@@ -20,7 +21,8 @@ encrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'users.login'
 moment = Moment(app)
-# babel = Babel(app)
+app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.config['ELASTICSEARCH_URL'] else None
+
 
 from project.users.routes import users
 from project.messages.routes import messages

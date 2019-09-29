@@ -11,7 +11,7 @@ class ContactForm(FlaskForm):
     add_contact = SubmitField("Add Contact")
 
     def validate_contact_no(self, contact_no):
-        number = Contact.query.filter_by(contact_no=contact_no.data, owner_id=current_user.user_id).first()
+        number = Contact.query.filter_by(contact_no=contact_no.data, owner_id=current_user.id).first()
         if number:
             raise ValidationError("Mobile number already added to contacts list")
 

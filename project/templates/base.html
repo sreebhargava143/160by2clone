@@ -42,26 +42,26 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
                     {%if not current_user.is_authenticated %}
-                      <li class="nav-item active"><a href="{{url_for('users.login')}}" class="nav-link" style="color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw">Free sms<span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item active"><a href="{{url_for('users.login')}}" class="nav-link" style="font-size: 1.4rem; padding-left: 1vw;padding-right: 1vw">Free sms<span class="sr-only">(current)</span></a></li>
                       
                       <li class="nav-item">
-                          <a class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.signup')}}">Sign Up</a>
+                          <a class="nav-link" style='font-size: 1.4rem; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.signup')}}">Sign Up</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.forgot_password')}}">Forgot password?</a>
+                          <a class="nav-link" style='font-size: 1.4rem; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.forgot_password')}}">Forgot password?</a>
                       </li>
                     {%else%}
                     <li class="nav-item">
-                        <p class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw'>
+                        <p class="nav-link" style='font-size: 1.4rem; padding-left: 1vw;padding-right: 1vw'>
                             Logged in as: {{current_user.username}}
                         </p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.logout')}}">Logout</a>
+                        <a class="nav-link" style='font-size: 1.4rem; padding-left: 1vw;padding-right: 1vw' href="{{url_for('users.logout')}}">Logout</a>
                     </li>
                     {%endif%}
                       <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white; font-size: 1.4vw; padding-left: 1vw;padding-right: 1vw'>
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='font-size: 1.4rem; padding-left: 1vw;padding-right: 1vw'>
                               Contact Us
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

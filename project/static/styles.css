@@ -5,7 +5,9 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-
+.width-100{
+    width: 100%
+}
 .header-container {
     display: flex;
     flex-direction: row;
@@ -13,7 +15,7 @@
     justify-content: space-between;
 }
 .logo-div {
-    width: 30%;
+    width: 35rem;
     display: inline-block;
     justify-content: space-around;
     align-items: center;
@@ -35,7 +37,7 @@
 .login-container {
     display: flex;
     justify-content: space-around;
-    padding: 3%;
+    padding: 2rem;
     background-color: whitesmoke;
     opacity: 0.8;
     border-radius: 5px;
@@ -65,12 +67,12 @@
     width:100%;
 }
 .login-text {
-    font-size: 1vw;
+    font-size: 1.5rem;
     font-weight: 400;
     color: #ec5452;
 }
 .login-form {
-    padding: 2%;
+    padding: 2rem;
 }
 
 .form-field{
@@ -88,18 +90,24 @@ input[type=text], input[type=password] {
     /* font-size: 2vmin; */
 }
 .styled-button {
-    padding: 5px 36px;
+    padding: 0.5vh 0.7vw;
     border: 2px solid #ec5452;
     border-radius: 30px;
     font-weight: 400;
+    font-size: 1.3rem;
+    color: grey;
+    text-decoration: none;
+
 }
 .styled-button:hover {
     color: white;
     background-color: #ec5452;
     cursor: pointer;
+    text-decoration: none;
 }
 .intro {
-    font-size: 1.5vw
+    color: grey;
+    font-size: 1.5rem;
 }
 .error-feedback {
     color: red;
@@ -125,7 +133,7 @@ input[type=text], input[type=password] {
 }
 .nav.text {
     color: white;
-    font-size: 1.4vw;
+    font-size: 1.4rem;
     padding-left: 1vw;
     padding-right: 1vw
 }
@@ -137,7 +145,7 @@ input[type=text], input[type=password] {
     width: 20%;
     color: #ec5452;
     background-color: #eee3e3;
-    height: 640px;
+    height: 80vh;
     overflow: scroll;
 }
 .account-aside{
@@ -188,6 +196,10 @@ input[type=text], input[type=password] {
 .scroll-button{
     display: inline-block
 }
+.message-time{
+    background-color: floralwhite;
+    font-weight: 600;
+}
 /*
 
 p{
@@ -207,9 +219,6 @@ p{
 }
 .col-70{
     width: 70%;
-}
-.width-100{
-    width: 100%
 }
 
 .col-container{

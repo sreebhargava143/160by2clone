@@ -25,7 +25,7 @@
     <h2>Contacts</h2>
     {%for contact in contacts%}
     <ul>
-        <li><a href="{{url_for('messages.message_to', contact_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
+        <li><a class="styled-button" href="{{url_for('messages.message_to', contact_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
     </ul>
     {%endfor%}
 </aside>
