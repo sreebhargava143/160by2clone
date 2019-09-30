@@ -18,12 +18,25 @@
         </div class="form-field">
         <div>
             {{form.gender(class="gender")}}
+            {%for error in form.gender.errors%}
+                <div class="error-feedback"><span>{{error}}</span></div>
+            {%endfor%}
         </div>
 
-        {{form.add_contact(class="styled-button site-theme-color")}}
+        {{form.add_contact(class="styled-button site-theme-color", formaction=url_for('contacts.contact'))}}
+
+        {{form.delete_contact(class="styled-button site-theme-color", formaction=url_for('contacts.delete_contact'))}}
  
     </form>
 </div>
+<aside class="contacts-aside">
+    <h2>Contacts</h2>
+    {%for contact in contacts%}
+    <ul>
+        <li><a class="styled-button" href="{{url_for('contacts.delete_selected', contact_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
+    </ul>
+    {%endfor%}
+</aside>
 
 <!-- <form action="" method="POST" novalidate>
     {{form.hidden_tag()}}

@@ -200,6 +200,9 @@ input[type=text], input[type=password] {
     background-color: floralwhite;
     font-weight: 600;
 }
+.sent-message-container {
+    padding: 0 2rem;
+}
 /*
 
 p{

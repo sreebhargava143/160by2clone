@@ -1,8 +1,9 @@
 from datetime import datetime
-from project import app, db, login_manager
+from project import db, login_manager
 from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from project.search import add_to_index, remove_from_index, query_index
+from flask import current_app
 
 
 class SearchableMixin(object):
@@ -65,12 +66,12 @@ class User(db.Model, UserMixin):
         return int(self.id)
 
     def get_reset_token(self, expires_sec=1800):
-        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
         return s.dumps({'id': self.id}).decode('utf-8')
 
     @staticmethod
     def verify_reset_token(token):
-        s = Serializer(app.config['SECRET_KEY'])
+        s = Serializer(current_app.config['SECRET_KEY'])
         try:
             id = s.loads(token)['id']
         except:

@@ -16,5 +16,5 @@ class Config(object):
     SENDER_ID = "160by2"
     MESSAGE_URL = os.environ.get('MESSAGE_URL')
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
-    MESSAGES_PER_PAGE = 5
+    MESSAGES_PER_PAGE = 4
     LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')

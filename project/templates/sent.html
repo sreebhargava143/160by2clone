@@ -10,7 +10,7 @@
         </div>
     </form>
     {% endif %}
-    <ul>
+    <ul class="sent-message-container">
         {%for sent_message in sent_messages%}
         <li class="sent-message">
             <span>
@@ -39,10 +39,10 @@
     </div>
 </section>
 <aside class="contacts-aside">
-    <h2>Contacts</h2>
+    <h1>Contacts</h1>
     {%for contact in contacts%}
     <ul>
-        <li><a href="{{url_for('messages.sent_messages_of', recipient_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
+        <li><a class="styled-button" href="{{url_for('messages.sent_messages_of', recipient_no=contact.contact_no)}}">{{contact.contact_name}} : {{contact.contact_no}}</a></li>
     </ul>
     {%endfor%}
 </aside>              

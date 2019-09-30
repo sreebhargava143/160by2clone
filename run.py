@@ -1,6 +1,9 @@
-from project import app
+from project import create_app
 from project import db
 from project.models import User, Message, Contact
+
+app = create_app()
+
 
 @app.shell_context_processor
 def make_shell_context():
