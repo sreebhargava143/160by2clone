@@ -25,7 +25,7 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.config['ELASTICSEARCH_URL'] else None
     db.init_app(app)
-    migrate.init_app(app)
+    migrate.init_app(app, db)
     encrypt.init_app(app)
     login_manager.init_app(app)
     moment.init_app(app)
